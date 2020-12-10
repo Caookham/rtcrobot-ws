@@ -1,0 +1,7 @@
+<launch>
+  <!-- assumes ds4drv is running -->
+  <node name="joy_control" pkg="rtcrobot_joystick" type="joy_control.py">
+    <param name="linear_max" value="0.5"/>
+    <param name="angular_max" value="0.5"/>
+  </node>
+</launch>

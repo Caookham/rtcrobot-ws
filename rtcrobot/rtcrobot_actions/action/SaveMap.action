@@ -1,0 +1,13 @@
+# Save Map to file
+# Specify an (optional) name for the map
+string map_name
+
+
+---
+# Define the result
+# Are we saved?
+bool saved
+
+---
+# Define a feedback message
+

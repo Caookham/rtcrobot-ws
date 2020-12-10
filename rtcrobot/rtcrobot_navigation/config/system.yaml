@@ -1,0 +1,16 @@
+Baterry: {capacity: NaN, cell_voltage: NaN, charge: NaN, current: NaN, design_capacity: NaN,
+  location: NaN, percentage: NaN, power_supply_health: NaN, power_supply_status: NaN,
+  power_supply_technology: NaN, present: NaN, serial_number: NaN, voltage: NaN}
+DWBLocalPlanner: {acc_lim_theta: 40.0, acc_lim_x: 20.0, acc_lim_y: 50.0, decel_lim_theta: -0.5,
+  decel_lim_x: 20.0, decel_lim_y: 4.0, max_speed_xy: 0.5, max_vel_theta: 1.0, max_vel_x: 0.5,
+  min_vel_x: 10.0}
+light:
+  color: {AQUA: 0 255 255, BLACK: 0 0 0, BLUE: 0 0 255, GRAY: 128 128 128, MAROON: 128
+      0 0, RED: 255 0 0, SILVER: 192 192 192, WHITE: 255 255 255, YELLOW: 255 255
+      0}
+  efect: {BLINK: B, BRIGHTNESS: R, RAINBOW: Z, SINGLE LIGHT: C}
+  state: {CALCULATING: B 255 255 255, CHARGING: B 255 255 255, EMERGENCY: B 0 0 255,
+    GOAL: B 255 255 255, HARDWARE_ERROR: B 255 255 255, IGNORING_OBSTACLES: B 255
+      255 255, MANUAL: Z 0 0 255, MAPPING: B 0 0 255, MISSION_PAUSE: R 0 0 255, MOVING: B
+      255 255 255, NORMAL: B 255 255 255, NO_LOCALIZATION: B 255 255 255, READY: C
+      0 255 255, SHUTDOWN: B 255 255 255, WAIT_RESPONSE: B 255 255 255}

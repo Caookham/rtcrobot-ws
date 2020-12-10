@@ -1,0 +1,4 @@
+string command
+---
+geometry_msgs/PoseStamped dock_pose
+bool docked

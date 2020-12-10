@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find rtcrobot_joystick)/launch/F710.launch" />
+  <include file="$(find rtcrobot_joystick)/launch/JoyControl.launch" />
+  <include file="$(find rtcrobot_autodock)/launch/dock.launch" />
+  <include file="$(find rtcrobot_actions)/launch/mission.launch" />
+  <node name="rtcrobot_status" pkg="rtcrobot_base" type="robotstatus.py" output="screen">
+  </node>
+  <node pkg="rtcrobot_base" type="robotpose.py" name="rtcrobot_robotpose">
+  </node>
+  <node pkg="rtcrobot_driver" type="battery.py" name="rtcrobot_battery">
+  </node>
+  <node pkg="rtcrobot_driver" type="robotboard.py" name="rtcrobot_robotboard">
+  </node>
+</launch>

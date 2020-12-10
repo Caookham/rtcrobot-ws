@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Editmission</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        <!-- href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/select.css">
+    <link rel="stylesheet" href="assets/css/untitled-1.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/dash.css">
+
+</head>
+
+<body id="page-top">
+    <ul class="nav flex-column shadow d-flex sidebar mobile-hid">
+        <li class="nav-item logo-holder1">
+            <div class="text-center text-white logo py-4 mx-4" style="font-size: 27px;">
+                <a class="text-white text-decoration-none" id="title" href="#">
+                    <strong>Sidebar</strong>
+                </a>
+                <a class="text-white float-right" id="sidebarToggleHolder2" href="#">
+                    <i class="fas fa-times" id="sidebarToggleClose"></i>
+                </a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-left text-white py-1 px-0 position-relative" data-toggle="dropdown"
+                aria-expanded="false" href="#">
+                <i class="fas fa-tachometer-alt mx-3"></i>
+                <span class="text-nowrap mx-2">Dashboard</span>
+                <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
+            </a>
+            <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                <a class="dropdown-item text-white" role="presentation" id="Dashboard" href="dashboard_index.html">
+                    <span>Dashboard</span>
+                </a>
+                <a class="dropdown-item text-white" role="presentation" id="manage_dashboard" href="dashboard_manager.html">
+                    <span>Manager Dashboard</span>
+                </a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" data-toggle="dropdown"
+                aria-expanded="false" href="#">
+                <i class="fas fa-sliders-h mx-3"></i>
+                <span class="text-nowrap mx-2">Settings</span>
+                <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i> 
+            </a>
+            <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                <a class="dropdown-item text-white" role="presentation" href="/maps.html"><i
+                        class="fas fa-map-marker mx-3"></i><span>Maps</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="mission"><i
+                        class="fas fa-tasks mx-3"></i><span>Mission</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="#"><i
+                        class="fas fa-bars mx-3"></i><span>More</span></a></div>
+        </li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="fas fa-user mx-3"></i><span class="text-nowrap mx-2">User profile</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="far fa-life-ring mx-3"></i><span class="text-nowrap mx-2">Support tickets</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="fas fa-archive mx-3"></i><span class="text-nowrap mx-2">Archive</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="fas fa-chart-bar mx-3"></i><span class="text-nowrap mx-2">Statistics</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span
+                    class="text-nowrap mx-2">Log out</span></a></li>
+    </ul>
+    <!--Content-->
+    <div>
+        <div>
+            <!--Navbar-->
+            <header>
+                <div class="topnav">
+                    <a class="float-left" id="sidebarToggleOpen" href="#">
+                        <i class="fas fa-bars" id="sidebarToggleHolder1"></i>
+                    </a>
+                    <a class="brand" href="/">
+                        RTC
+                        <span style="color: #f33f3f;">ROBOT</span>
+                    </a>
+                    <div class="topnav-right">
+                        <a href="#search">
+                            <i id="save_mission" class="fas fa-check" style="color: green;"> Save</i>
+                        </a>
+
+                    </div>
+                </div>
+            </header>
+            <div>
+
+                <div class=" mb-5 ml-5 mt-3">
+                    <span id="name_display"></span>
+                    <br>
+                    <span style="font-size:smaller">Watch and edit setting for robot</span>
+                </div>
+
+                <div" class="row mt-50">
+                    <div class="col">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="color: rgb(4,4,4);">Action</h4>
+                                    <h6 class="text-dark card-subtitle mb-2" style="color: rgb(3,3,3);">Click add action
+                                        to mision!&nbsp;</h6>
+
+                                    <table id="table" class="table">
+                                        <thead>
+                                            <tr></tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="Actions">
+                                                <td id="Charging" class="value_actions">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <form>
+                                                                <div class="field"><select class="form-control"
+                                                                        id="select_action">
+                                                                        <option value="move_setting" id="select_move">
+                                                                            Move</option>
+                                                                        <!-- <option value="charge_setting">Charge</option> -->
+                                                                        <option value="switch_map">Wait</option>
+                                                                        <option value="loop">loop</option>
+                                                                        <!-- <option value="while_setting">While </option>
+                                                                        <option value="if_setting">if</option> -->
+                                                                    </select>
+                                                                    <label id="select_action" class="mb-0"
+                                                                        for="float-input">Action!</label>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="Actions">
+                                                <td id="Switch_Map" class="value_actions">Setting Action!
+                                                    <div class="row">
+                                                        <div class="col text-center"><button class="btn btn-secondary"
+                                                                id="setting" type="button"
+                                                                data-toggle="modal">Setting</button></div>
+                                                    </div>
+
+                                </div>
+                                </td>
+                                </tr>
+                                </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-10 col-sm-10 col-xl-10  col-mb-10">
+                                    <h4 class="card-title" style="color: rgb(11,11,11);">Mission&nbsp;</h4>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xl-2  col-mb-2">
+                                    <input type="checkbox"  id="loop" name="vehicle1" value="Bike">
+                                    <label for="vehicle1"> loop</label><br>
+                                </div>
+                            </div>
+                            
+
+                            <h6 id="name_display1" class="text-muted card-subtitle mb-2"></h6>
+                            <div class="table-responsive">
+                                <table id="talbe_mission" class="table">
+
+                                    <tr>
+                                        <th class="text-left">Action</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th class="text-right">setting</th>
+                                    </tr>
+
+
+                                    <tr><td>MOVE</td>
+                                        <td>A</td><td> </td><td> </td><td><div class="float-right"><i onclick="Delete()" class="fa fa-trash-o mr-2"></i><i id="edit" class="fa fa-pencil ml-1"></i> </div></td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- <footer style="bottom: 10px;" class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © MTK 2020</span></div>
+            </div>
+        </footer> -->
+    </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <div class="modal fade" role="dialog" tabindex="-1" id="kham-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Title</h4><button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>The content of your modal.</p>
+                </div>
+                <div class="modal-footer"><button data-dismiss="modal class=" btn btn-light type="button"
+                        data-dismiss="modal">Close</button><button class="btn btn-primary" type="button"
+                        data-dismiss="modal">Save</button></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div role="dialog" tabindex="-1" class="modal fade show" id="while_setting">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color: rgb(3,3,3);">while setting</h4><button type="button"
+                        class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body text-center"><label class="text-left">Condition run while</label>
+                    <div class="form-group">
+                        <div class="card"><select id="Condition_run_while">
+                                <option value="Min_time" selected>Min_time</option>
+                                <option value="min_level">min_level</option>
+                                <option value="va cham">va cham</option>
+                            </select></div>
+                    </div><label class="text-left">Condition</label>
+                    <div class="form-group"><input type="text" id="Condition_while"
+                            class="form-control-user form-control" placeholder="condition " /></div><label
+                        class="text-left">Operation</label>
+                    <div class="form-group">
+                        <div class="card"><select id="Operation_while">
+                                <option value="&gt;" selected>&gt;</option>
+                                <option value="&lt;">&lt;</option>
+                                <option value="=">=</option>
+                                <option value="!=">!=</option>
+                                <option value="==">==</option>
+                            </select></div>
+                    </div><label class="text-left" id="select_Action_while">Action</label>
+                    <div class="form-group">
+                        <div class="card"><select id="action">
+                                <optgroup label="This is a group">
+                                    <option value="move" selected>move</option>
+                                    <option value="charge">charge</option>
+                                    <option value="docking">docking</option>
+                                </optgroup>
+                            </select></div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button data-dismiss="modal" id="edit_while" class="btn btn-primary"
+                        type="button">Edit</button><button class="btn btn-light" type="button"
+                        data-dismiss="modal">Close</button><button class="btn btn-primary" id="creat_while"
+                        data-dismiss="modal">OK</button></div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" class="modal fade show" id="move_setting">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color: rgb(3,3,3);">Move Setting</h4><button type="button"
+                        class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group text-center">
+                        <div class="col">
+                            <form>
+                                <div class="field"><select class="form-control" id="Chosse_Map"></select>
+                                    <label id="select_action" class="mb-0" for="float-input">Chosse Map!</label>
+                                </div>
+				<div class="field"><select class="form-control" id="select_condinate"></select>
+                                    <label id="select_action" class="mb-0" for="float-input">Condinate!</label>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"> <button data-dismiss="modal" id="edit_move" class="btn btn-primary"
+                        type="button">Edit</button> <button class="btn btn-light" type="button"
+                        data-dismiss="modal">Close</button><button data-dismiss="modal" class="btn btn-primary"
+                        id="creat_move">OK</button></div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" class="modal fade show" id="charge_setting">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color: rgb(3,3,3);">Charge setting</h4><button type="button"
+                        class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group text-center"><label>Label</label><input type="text" id="min_level"
+                            class="form-control-user form-control" placeholder="Min_level_pin" /></div>
+                    <div class="form-group text-center"><label>Label</label><input type="text" id="min_time"
+                            class="form-control-user form-control" placeholder="Min time charge" /></div>
+                </div>
+                <div class="modal-footer"><button data-dismiss="modal" id="edit_charge" class="btn btn-primary"
+                        type="button">Edit</button><button class="btn btn-light" type="button"
+                        data-dismiss="modal">Close</button><button data-dismiss="modal" class="btn btn-primary"
+                        id="creat_charge">OK</button></div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" class="modal fade" id="if_setting">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color: rgb(3,3,3);">If setting</h4><button type="button"
+                        class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body text-center"><label class="text-left">Condition run if</label>
+                    <div class="form-group">
+                        <div class="card"><select id="Condition_run_if">
+                                <option value="Min_time" selected>Min_time</option>
+                                <option value="min_level">min_level</option>
+                                <option value="va cham">va cham</option>
+                            </select></div>
+                    </div><label class="text-left">Condition</label>
+                    <div class="form-group"><input id="Condition_if" type="text" id="Name_mission-1"
+                            class="form-control-user form-control" placeholder="condition " /></div><label
+                        class="text-left">Operation</label>
+                    <div class="form-group">
+                        <div class="card"><select id="Operation_if">
+                                <option value="&gt;" selected>&gt;</option>
+                                <option value="&lt;">&lt;</option>
+                                <option value="=">=</option>
+                                <option value="!=">!=</option>
+                                <option value="==">==</option>
+                            </select></div>
+                    </div><label class="text-left">Action</label>
+                    <div class="form-group">
+                        <div class="card"><select id="action_if">
+                                <optgroup label="This is a group">
+                                    <option value="move" selected>move</option>
+                                    <option value="charge">charge</option>
+                                    <option value="docking">docking</option>
+                                </optgroup>
+                            </select></div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button data-dismiss="modal" id="edit_if" class="btn btn-primary"
+                        type="button">Edit</button><button class="btn btn-light" type="button"
+                        data-dismiss="modal">Close</button><button data-dismiss="modal" class="btn btn-primary"
+                        id="creat_if">OK</button></div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" class="modal fade show" id="switch_map_setting">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color: rgb(3,3,3);">Wait</h4><button type="button"
+                        class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group text-center">
+                        <form>
+                            <div class="card"><select id="wait" onchange="wait1()" >
+                                <option value="TIME" selected>TIME</option>
+                                <option value="INPUT">INPUT</option>
+                                <option value="REQUEST">REQUEST</option>
+                            </select></div>
+                            
+                            <br>
+                        
+                            <div id="time_" class="form-group text-center"><label>second</label><input type="text" id="time"
+                                class="form-control-user form-control" placeholder="time to wait" /></div>
+                            <br>
+
+                            <div  id="io" class="card"> <label>condition</label> <select id="io_" >
+                                <option value="INPUT1">INPUT1</option>
+                                <option value="INPUT2">INPUT2</option>
+                            </select></div>
+
+                            <br>
+
+                                <div  id="con" class="card"> <label>condition</label> <select id="status_" >
+
+                                    <option value="ON">ON</option>
+                                    <option value="OFF">OFF</option>
+                                </select></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer"> <button data-dismiss="modal" id="edit_switch" class="btn btn-primary"
+                        type="button">Edit</button> <button class="btn btn-light" type="button"
+                        data-dismiss="modal">Close</button><button data-dismiss="modal" class=" btn btn-primary"
+                        id="creat_sw_map">OK</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/ColladaLoader2.js"></script>
+    <script src="assets/js/nav2d.js"></script>
+    <script src="assets/js/editmission.js"></script>
+    <script src="assets/js/nipplejs.js"></script>
+    <script src="assets/js/roslib.js"></script>
+    <script src="assets/js/roslib.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+    <script src="assets/js/sidebar.js"></script>
+</body>
+
+</html>

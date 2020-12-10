@@ -1,0 +1,39 @@
+.mapping-func {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+  .other-tips { display: none; }  /* show it on small screens */
+}
+
+@media screen and (min-width: 1201px){
+  .other-tips { display: block; }   /* hide it elsewhere */
+}
+
+
+.v-divider{
+  border-left:1px solid #d1d3e2;
+ }
+
+.nav-button {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+li .actived{
+  color: green;
+}
+
+#tool-list .hidden{
+  visibility: hidden;
+  height: 0;
+}
+
+#tool-list .fa-check{
+  color: green;
+}
+
+#tool-list .fa-close{
+  color: #fa5a5a;
+}

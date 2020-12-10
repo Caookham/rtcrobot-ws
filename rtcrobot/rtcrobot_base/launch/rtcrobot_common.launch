@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="robot_x"   default="0.0" />
+  <arg name="robot_y"   default="0.0" />
+  <arg name="robot_yaw" default="0.0" />
+  <arg name="prefix"    value="" />   <!-- this has to be "value", not "default", otherwise subst_value doesn't work -->
+
+
+  <!-- Load URDF -->
+  <include file="$(find rtcrobot_description)/launch/upload.launch" />
+  <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch" />
+  
+  <include file="$(find rtcrobot_base)/include/robot_manager.launch" />
+  
+  <!-- Start IMU -->
+  <!--<include file="$(find wit_node)/launch/wit.launch" />-->
+  <!-- Start Webserver -->
+ <!-- <include file="$(find rtcrobot_webinterface)/launch/webserver.launch" />  -->
+ <!-- <include file="$(find rtcrobot_webinterface)/launch/rosbridge_websocket.launch" />  -->
+
+
+  <!-- Start the controllers -->
+  <include file="$(find rtcrobot_base)/include/controller.launch" />
+  <!--<include file="$(find rtcrobot_base)/include/d435l.launch" />-->
+  <!--<include file="$(find rtcrobot_base)/include/d435r.launch" />-->
+  <include file="$(find rtcrobot_base)/include/laserfilter.launch" />
+  <include file="$(find rtcrobot_base)/include/laserodom.launch" />
+  
+
+  <!-- Start the sensor -->
+  <!--<include file="$(find rtcrobot_base)/include/rplidar.launch" />-->
+  <!--<include file="$(find rtcrobot_base)/include/rs.launch" />-->
+  
+  <include file="$(find rtcrobot_base)/include/sick_scan.xml" />
+  <!-- EKF -->
+  <!--<include file="$(find rtcrobot_base)/include/ekf.launch.xml"/>-->
+
+    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="rscloud_to_rsscanleft">
+
+        <remap from="cloud_in" to="/camera_left/depth/color/points"/>
+        <remap from="scan" to="rs_left_scan"/>
+        <rosparam>
+            target_frame: depth_link # Leave disabled to output scan in pointcloud frame
+            transform_tolerance: 0.01
+            min_height: -0.12
+            max_height: 0.5
+
+            angle_increment: 0.0174532925 # M_PI/180
+            scan_time: 0.3333
+            range_min: 0.015 #distance
+            range_max: 2.0
+            use_inf: true
+            inf_epsilon: 1.0
+
+            # Concurrency level, affects number of pointclouds queued for processing and number of threads used
+            # 0 : Detect number of cores
+            # 1 : Single threaded
+            # 2->inf : Parallelism level
+            concurrency_level: 1
+        </rosparam>
+
+    </node>
+
+    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="rscloud_to_rsscanright">
+
+        <remap from="cloud_in" to="/camera_right/depth/color/points"/>
+        <remap from="scan" to="rs_right_scan"/>
+        <rosparam>
+            target_frame: depth_link # Leave disabled to output scan in pointcloud frame
+            transform_tolerance: 0.01
+            min_height: -0.12
+            max_height: 0.5
+
+            angle_increment: 0.0174532925 # M_PI/180
+            scan_time: 0.3333
+            range_min: 0.015 #distance
+            range_max: 2.0
+            use_inf: true
+            inf_epsilon: 1.0
+
+            # Concurrency level, affects number of pointclouds queued for processing and number of threads used
+            # 0 : Detect number of cores
+            # 1 : Single threaded
+            # 2->inf : Parallelism level
+            concurrency_level: 1
+        </rosparam>
+
+    </node>
+
+    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="fcloud_to_dock">
+
+        <remap from="cloud_in" to="/f_cloud"/>
+        <remap from="scan" to="dock_scan"/>
+        <rosparam>
+            target_frame: f_scan_link # Leave disabled to output scan in pointcloud frame
+            transform_tolerance: 0.01
+            min_height: -0.1
+            max_height: 0.5
+
+            angle_increment: 0.0174532925 # M_PI/180
+            scan_time: 0.3333
+            range_min: 0.010 #distance
+            range_max: 2.0
+            use_inf: true
+            inf_epsilon: 1.0
+
+            # Concurrency level, affects number of pointclouds queued for processing and number of threads used
+            # 0 : Detect number of cores
+            # 1 : Single threaded
+            # 2->inf : Parallelism level
+            concurrency_level: 1
+        </rosparam>
+
+    </node>
+
+	<!-- Start the controllers -->
+	<include file="$(find rtcrobot_navigation)/launch/start_planner.launch" />
+ 
+</launch>

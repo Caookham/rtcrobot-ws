@@ -1,0 +1,21 @@
+local_costmap:
+    ### footprint
+    footprint: [[-0.45,-0.28],[-0.45,0.28],[0.45,0.28],[0.45,-0.28]] #[[-0.475, -0.295], [-0.475, 0.295], [0.475, 0.295], [0.475, -0.2795]]
+    footprint_padding: 0.00
+    global_frame: $(arg prefix)odom_comb
+    rolling_window: true
+    static_map: false
+    raytrace_range: 4.0
+    resolution: 0.05
+    z_resolution: 0.15
+    z_voxels: 8
+    inflation:
+      cost_scaling_factor: 10.0  # Exponential rate at which the obstacle cost drops off (default: 10). Must be chosen so that the cost value is > 0 at robot's circumscribed radius.
+      inflation_radius:     0.3  # Max. distance from an obstacle at which costs are incurred for planning paths. Must be > robot's circumscribed radius.
+    width: 5.0
+    height: 5.0
+    origin_x: 0.0
+    origin_y: 0.0
+    transform_tolerance: 0.5
+
+    # plugins are loaded via costmap_local_params_plugins_[mapping|planning].yaml

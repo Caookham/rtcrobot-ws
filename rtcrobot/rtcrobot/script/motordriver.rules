@@ -1,0 +1,4 @@
+# set the udev rule , make the device_port be fixed by rtcboard
+#
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="8989", ATTRS{idProduct}=="1346", MODE:="0777", SYMLINK+="motordriver"
+

@@ -1,0 +1,14 @@
+<launch>
+
+  <arg name="local_planner" default="false" />
+
+  <!--<include file="$(find rtcrobot_navigation)/launch/start_maps.launch"/>-->
+  <node name="map_server" pkg="rtcrobot_navigation" type="map_server.py" output="screen">
+  </node>
+  <node name="turn_on_mapping" pkg="rtcrobot_navigation" type="turnonmapping.py" output="screen">
+  </node>
+  <include file="$(find rtcrobot_navigation)/launch/amcl.launch"/>
+  <!--<include file="$(find rtcrobot_navigation)/launch/hector_mapping.launch"/>-->
+  <include file="$(find rtcrobot_navigation)/launch/move_base.launch">
+  </include>
+</launch>

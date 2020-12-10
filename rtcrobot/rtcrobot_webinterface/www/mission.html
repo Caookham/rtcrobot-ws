@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Mission</title>
+    <link rel="icon" href="/www/assets/img/dogs/image2.jpeg" type="image/gif" sizes="16x16">
+    <!-- <link rel="stylesheet" href="https://fonts.os.environgoogleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface"> -->
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/select.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!--Side bar-->
+        <ul class="nav flex-column shadow d-flex sidebar mobile-hid">
+            <li class="nav-item">
+                <div class="text-center text-white logo py-4" style="font-size: 24px; margin-right: 1.5rem;">
+                    <a class="text-white text-decoration-none" id="title" href="#">
+                        RTC
+                        <span style="color: #f33f3f;">ROBOT</span>
+                    </a>
+                    <a class="text-white float-right" id="sidebarToggleHolder2" href="#">
+                        <i class="fas fa-times" id="sidebarToggleClose"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-left text-white py-1 px-0 position-relative" data-toggle="dropdown" aria-expanded="false" href="#">
+                    <i class="fas fa-tachometer-alt mx-3"></i>
+                    <span class="text-nowrap mx-2">Dashboard</span>
+                    <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
+                </a>
+                <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                    <a class="dropdown-item text-white" role="presentation" id="Dashboard" href="dashboard_index.html">
+                        <span>Dashboard</span>
+                    </a>
+                    <a class="dropdown-item text-white" role="presentation" id="manage_dashboard" href="dashboard_manager.html">
+                        <span>Manager Dashboard</span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" data-toggle="dropdown" aria-expanded="false" href="#">
+                    <i class="fas fa-sliders-h mx-3"></i>
+                    <span class="text-nowrap mx-2">Setup</span>
+                    <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
+                </a>
+                <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                    <a class="dropdown-item text-white" role="presentation" href="/maps.html"><i class="fas fa-map-marker mx-3"></i><span>Maps</span></a>
+              
+                    <a class="dropdown-item text-white" role="presentation" href="mission"><i class="fas fa-tasks mx-3"></i><span>Mission</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="sound"><i class="fas fa-bars mx-3"></i><span>Sound</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="setting"><i class="fas fa-bars mx-3"></i><span>Setting</span></a></div>
+            </li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-chart-bar mx-3"></i><span class="text-nowrap mx-2">Statistics</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-user mx-3"></i><span class="text-nowrap mx-2">User profile</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="far fa-life-ring mx-3"></i><span class="text-nowrap mx-2">Support tickets</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Log out</span></a></li>
+        </ul>
+        <!--Content-->
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <!--Navbar-->
+                <header>
+                    <div class="topnav">
+                        <a class="float-left"  id="sidebarToggleOpen" href="#">
+                            <i class="fas fa-bars" id="sidebarToggleHolder1" ></i>
+                        </a>
+                        <a class="brand" href="/">
+                            RTC
+                            <span style="color: #f33f3f;">ROBOT</span>
+                        </a>
+                        <div class="topnav-right">
+                            <a href="#search" data-toggle="modal" data-target="#createMission">
+                                <i class="fas fa-plus" style="color: rgb(105,105,105);"></i>
+                            </a>
+                            <a href="#about">
+                                <i class="fas fa-ellipsis-v" style="color: red;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </header>
+        <!--content center-->
+        <div>
+
+            <div style="width: 40%;" class=" mb-5 ml-5 mt-3">
+                  
+                <span style="font-size:x-large; ">Mission</span>
+                <br>
+                <span style="font-size:smaller">Watch and edit mission</span>
+        
+            </div>
+            
+            <div class="row">
+                <div  class="col-sm-6">
+                    <div id="list" class="card shadow-sm">
+                        <div class="card-header"><h4 class="card-title">List Mission&nbsp;</h4>
+                            <h6 class="text-muted card-subtitle mb-2"></h6>    </div>
+                        <div class="card-body">
+                            <div id="list_mission" class="container mt-3">
+                            </div>
+
+                        </div>
+                    </div>
+        
+                
+                </div>
+                <div class="col-sm-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header"><h4 class="card-title">Mission Action &nbsp;</h4>
+                            <h6 class="text-muted card-subtitle mb-2"></h6>    </div>
+                        <div class="card-body"> 
+                            <div id="mission_action" class="container mt-3">
+                                <div class="card-body">
+                                    <h5 style="text-align: center;" id="run_mission" >No mission active</h5>
+                                    <h6 style="text-align: center;" id="run_mission">null</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="modal fade" role="dialog" tabindex="-1" id="createMission">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" style="color: rgb(3,3,3);">Create a Mission&nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                        <div class="modal-body">
+                            <p style="font-size: 20px;color: rgb(13,13,13);">Creat Mission&nbsp;</p>
+                            <div class="form-group"><input type="text" id="name_mission1" class="form-control-user form-control" placeholder="Name"></div>
+                            <div class="form-group"><input type="text" id="createby" class="form-control-user form-control" placeholder="createby"></div>
+    
+                        </div>
+                        <div  class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
+                            <form  method="get"></form>
+                            <button id="creat_mission" action="editmission" class="btn btn-primary"><a style="color: rgb(255,255,255);">Create&nbsp;</a></button>
+                        </div>
+                    </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © MTK 2020</span></div>
+            </div>
+        </footer>
+     -->
+    </div>
+
+    <div class="modal fade" role="dialog" tabindex="-1" id="kham">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Title</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <p>The content of your modal.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/roslib.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/ColladaLoader2.js"></script>
+    <script src="assets/js/easeljs.min.js"></script>
+    <script src="assets/js/eventemitter2.min.js"></script>   
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/mission.js"></script>
+    <script src="assets/js/nav2d.js"></script>
+    <script src="assets/js/nipplejs.js"></script>
+    <!-- <script src="assets/js/theme.js"></script> -->
+    <script src="assets/js/sidebar.js"></script>
+
+</div>
+</body>
+
+</html>

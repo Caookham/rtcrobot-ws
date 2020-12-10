@@ -1,0 +1,15 @@
+# Define the goal
+
+bool turn
+float32 distance
+---
+# Define the result
+# Are we docked and charging?
+bool undocked
+---
+# Define a feedback message
+# Feedback is the detected pose of the dock.
+geometry_msgs/PoseStamped dock_pose
+
+# Plus the control output
+geometry_msgs/Twist command

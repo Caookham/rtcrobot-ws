@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no; user-scalable=no;">
+    <title>RTCRobot - Mapping</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/OK.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/mystyle.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand fixed-top bg-white shadow mb-4 topbar static-top" style="height: 3rem;">
+        <div class="container-fluid">
+            <div id='tool-list' style="vertical-align: middle;">
+                <ul class="nav navbar-nav map-tool"> <!--navigation layer-->
+                    <li role="presentation"><i class="nav-button fas fa-pen mapping-func"></i></li>
+                    <li role="presentation"><i class="nav-button fas fa-draw-polygon mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fas fa-eraser mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fa fa-arrows-alt mapping-func"></i></li>
+                    <li role="presentation"><i class="nav-button fas fa-mouse-pointer mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fas fa-check mapping-func"></i></li>
+                    <li role="presentation"><i class="nav-button fas fa-close mapping-func"></i></li>
+                </ul>  
+                <ul class="nav navbar-nav marker-tool hidden"> <!--Marker-->
+                    <li role="presentation"><i class="nav-button fas fa-map-marker-alt mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fa fa-arrows-alt mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fas fa-mouse-pointer mapping-func"></i></li>
+                </ul>  
+                <ul class="nav navbar-nav zone-tool hidden"> <!--Zone-->
+                    <li role="presentation"><i class="nav-button fas fa-draw-polygon mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fas fa-eraser mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fas fa-cog mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fa fa-arrows-alt mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fas fa-mouse-pointer mapping-func"></i></li>
+                    <li class="v-divider" role="presentation"><i class="nav-button fas fa-check mapping-func"></i></li>
+                    <li role="presentation"><i class="nav-button fas fa-close mapping-func"></i></li>
+                </ul>  
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="nav-item" role="presentation"><a class="nav-link" id="btn-download" href="#"><i class="fa fa-save mapping-func"></i><span style="margin-left: 7px;">Save</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="/maps.html"><i class="fa fa-remove mapping-func"></i><span style="margin-left: 7px;">Cancel</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="map-contain" style="position: fixed;margin-top: 0;height: 100%;width: 100%;z-index: 10;overflow: hidden;background-color: rgb(236, 236, 236);">
+    </div>
+
+    <nav class="navbar navbar-light navbar-expand fixed-bottom bg-white shadow topbar">
+        <div class="container-fluid">
+            <div style="vertical-align: middle;">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><span>@</span></div>
+                    </div>
+                    <select id="slt-layertype" class="form-control" class="selectpicker">
+                        <option value="1" selected>Wall</option>
+                        <option value="2">Floor</option>
+                        <option value="3">Vitual Wall</option>
+                        <option value="12">Marker</option>
+                        <option value="4">Speed Zones</option>
+                        <option value="5">Bluetooth Zones</option>
+                        <option value="8">No localization Zones</option>
+                        <option value="9">Look-ahead Zones</option>
+                        <option value="6" data-thumbnail="http://icons.iconarchive.com/icons/tinylab/android-lollipop-apps/24/Evernote-icon.png">Beep Zones</option>
+                        <option value="7">Blink Zones</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+            <ul class="nav navbar-nav" id="bottom_tool">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-location-arrow fa-2x" aria-hidden="true"></i></a></li>
+                <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-remove mapping-func"></i><span style="margin-left: 7px;">Cancel</span></a></li> -->
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="bg-info" id="zone_joystick" style="z-index: 100;height: 0;width: 0;position: fixed;bottom: 0;right: 0;margin-right: 150px;margin-bottom: 150px;"></div>
+    <div class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Upload, download and record mpas</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col"><a href="#"><i class="fa fa-upload" style="line-height: 48px;font-size: 28px;margin-right: 20px;color: green;"></i>&nbsp;Upload and append</a></div>
+                        <div class="col"><a href="#"><i class="fa fa-circle" style="line-height: 48px;font-size: 28px;margin-right: 20px;color: red;"></i>&nbsp;Recode and append</a></div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-Settings">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Settings</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+<button id="edit" class="btn btn-primary btn-edit" type="button" data-dismiss="modal">edit</button>
+                    <button class="btn btn-danger btn-delete" type="button" data-dismiss="modal">Delete</button>
+                    <button id="ok" class="btn btn-primary btn-ok" type="button" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+ <script src="assets/js/roslib.js"></script>
+ <script src="assets/js/roslib.min.js"></script>
+  <script src="assets/js/eventemitter2.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/js.js"></script>
+    <script src="assets/js/createjs.min.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/MapTool.js"></script>
+    <script src="assets/js/editmap.js"></script>
+    <script src="assets/js/three.js"></script>
+
+</body>
+
+</html>

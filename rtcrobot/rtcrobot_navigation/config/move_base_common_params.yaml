@@ -1,0 +1,19 @@
+### footprint
+footprint: [[-0.45,-0.28],[-0.45,0.28],[0.45,0.28],[0.45,-0.28]] #[[-0.475, -0.295], [-0.475, 0.295], [0.475, 0.295], [0.475, -0.2795]]
+#footprint_padding: 0.03
+
+### replanning
+controller_frequency: 10.0   # run controller at 5.0 Hz
+controller_patience: 5.0    # if the controller failed, clear obstacles and retry; after 5.0 s, abort and replan
+planner_frequency: 0.5       # don't continually replan (only when controller failed)
+planner_patience: 5.0        # if the first planning attempt failed, abort planning retries after 5.0 s...
+max_planning_retries: 20     # ... or after 10 attempts (whichever happens first)
+oscillation_timeout: 15.0    # abort controller and trigger recovery behaviors after 30.0 s
+
+### recovery behaviors
+recovery_behavior_enabled: true
+recovery_behaviors: [{name: conservative_reset, type: clear_costmap_recovery/ClearCostmapRecovery}, {name: aggressive_reset, type: clear_costmap_recovery/ClearCostmapRecovery}]
+conservative_reset:
+  reset_distance: 5.0        # clear obstacles farther away than 3.0 m
+
+conservative_reset_dist: 0.50 #distance from an obstacle at which it will unstuck itself

@@ -1,0 +1,120 @@
+base_local_planner: nav_core_adapter::LocalPlannerAdapter
+LocalPlannerAdapter:
+  planner_name: dwb_local_planner::DWBLocalPlanner
+DWBLocalPlanner:
+  # Robot configuration
+  max_vel_x:  0.5 #0.8
+  min_vel_x:  -0.3
+
+  max_vel_y: 0.0  # diff drive robot
+  min_vel_y: 0.0  # diff drive robot
+
+  max_speed_xy: 0.5    # max_trans_vel: 0.8  # choose slightly less than the base's capability
+  min_speed_xy: 0.1    # min_trans_vel: 0.1  # this is the min trans velocity when there is negligible rotational velocity
+
+  max_vel_theta: 0.5    # max_rot_vel: 1.0  # choose slightly less than the base's capability
+  min_speed_theta: 0.2  # min_rot_vel: 0.1 default: 0.4  # this is the min angular velocity when there is negligible translational velocity
+
+  acc_lim_x: 10.0
+  acc_lim_y: 0.0      # diff drive robot
+  acc_lim_theta: 10.0 #1.5
+  decel_lim_x: -10.0 #1.5
+  decel_lim_y: -0.0
+  decel_lim_theta: -10.0 #1.5
+
+  # Goal tolerance
+  yaw_goal_tolerance: 0.03  # yaw_goal_tolerance > (sim_time * min_rot_vel) / 2 (from Navigation Tuning Guide)
+  xy_goal_tolerance: 0.08   # xy_goal_tolerance  > (sim_time * min_vel_x)   / 2
+  #latch_xy_goal_tolerance: true
+
+  # Whether to split the path into segments or not
+  # Requires https://github.com/locusrobotics/robot_navigation/pull/50
+  split_path: true
+
+  # Forward simulation (trajectory generation)
+  trajectory_generator_name: dwb_plugins::LimitedAccelGenerator # or dwb_plugins::LimitedAccelGenerator StandardTrajectoryGenerator
+  sim_time: 1.0 #1.2
+  vx_samples: 30
+  vy_samples: 1       # diff drive robot, there is only one sample
+  vtheta_samples: 30
+  discretize_by_time: false
+  angular_granularity: 0.5 #0.15
+  linear_granularity: 0.15 #0.05
+  # sim_period
+  # include_last_point
+
+  # Goal checking
+  goal_checker_name: dwb_plugins::SimpleGoalChecker
+  # stateful: true
+  occdist_scale: 3
+
+  # Critics (trajectory scoring)
+  default_critic_namespaces: [dwb_critics, rtcrobot_dwb_critics]
+  critics: [RotateToGoal, ObstacleFootprint, PathAlign, PathDist, PathProgress, PathDistPruned]
+
+  RotateToGoal:
+     class: "RotateToGoal"
+     scale: 100
+     #xy_goal_tolerance: 0.1
+     #trans_stopped_velocity: 0.1
+     #lookahead_time: -1.0
+     #slowing_factor: 5.0
+
+  Oscillation:
+     class: "Oscillation"
+     oscillation_reset_angle: 0.2
+     oscillation_reset_dist: 0.05
+     oscillation_reset_time: -1
+     scale: 1.0
+     x_only_threshold: 0.05
+
+  ObstacleFootprint:
+     class: "ObstacleFootprint"
+     scale: 0.05
+     max_scaling_factor: 0.1
+     scaling_speed: 0.2
+     #sum_scores: true
+
+  PathAlign:
+     aggregation_type: "last"
+     class: "PathAlign"
+     forward_point_distance: 0.125
+     scale: 32.0
+
+  PathDist:
+     #aggregation_type: "last"
+     class: "PathDist"
+     scale: 32.0
+
+  PathAngle:
+     class: 'rtcrobot_dwb_critics::PathAngle'
+     scale: 32.0
+
+  PathDistPruned:
+    scale: 32.0            # default: 32.0  mir: 32.0   - weighting for how much it should stick to the global path plan
+    class: 'rtcrobot_dwb_critics::PathDistPruned'
+
+  PathProgress:
+     class: 'rtcrobot_dwb_critics::PathProgress'
+     scale: 24.0
+     #heading_scale: 0.1
+     xy_local_goal_tolerance: 0.5
+     angle_threshold: 0.523598776
+
+  # Prune already passed poses from plan
+  prune_plan: true
+  prune_distance: 1.0   # Old poses farther away than prune_distance (in m) will be pruned.
+                        # If the robot ever gets away further than this distance from the plan,
+                        # the error "Resulting plan has 0 poses in it" will be thrown and
+                        # replanning will be triggered.
+
+  # Debugging
+  publish_cost_grid_pc: true
+  debug_trajectory_details: false
+  publish_evaluation: true
+  publish_global_plan: true
+  publish_input_params: true
+  publish_local_plan: true
+  publish_trajectories: true
+  publish_transformed_plan: true
+  marker_lifetime: 0.5

@@ -1,0 +1,12 @@
+# Define the goal
+string command
+---
+# Define the result
+bool done
+string description
+---
+# Define a feedback message
+# Status
+uint8 code
+string status
+

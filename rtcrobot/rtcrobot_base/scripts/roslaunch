@@ -1,0 +1,6 @@
+#! /bin/bash  
+source /opt/ros/melodic/setup.sh 
+source ~/robot_ws/devel/setup.bash 
+source /etc/ros/env.sh
+roslaunch rtcrobot_base rtcrobot_common.launch
+#exit 0

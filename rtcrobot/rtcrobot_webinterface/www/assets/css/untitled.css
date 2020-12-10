@@ -1,0 +1,11 @@
+.mapping-func {
+  font-size: 28px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+  .other-tips { display: none; }  /* show it on small screens */
+}
+
+@media screen and (min-width: 1201px){
+  .other-tips { display: block; }   /* hide it elsewhere */
+}

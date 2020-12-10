@@ -1,0 +1,22 @@
+<launch>
+    <!--node ns="local_costmap" name="voxel_grid_throttle" pkg="topic_tools" type="throttle" args="messages voxel_grid 3.0 voxel_grid_throttled" /-->
+    <arg name="prefix" default="" doc="Prefix used for robot tf frames" /> <!-- used in the config files -->
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen" clear_params="true">
+        <param name="SBPLLatticePlanner/primitive_filename" value="$(find rtcrobot_navigation)/mprim/output.mprim" />
+        <rosparam file="$(find rtcrobot_navigation)/config/move_base_common_params.yaml" command="load" />
+        <rosparam file="$(find rtcrobot_navigation)/config/sbpl_global_params.yaml" command="load" />
+        <rosparam file="$(find rtcrobot_navigation)/config/dwb_local_planner_params.yaml" command="load" />
+        <!-- global costmap params -->
+        <rosparam file="$(find rtcrobot_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" subst_value="true" />
+        <rosparam file="$(find rtcrobot_navigation)/config/costmap_global_params.yaml" command="load" />
+        <rosparam file="$(find rtcrobot_navigation)/config/costmap_global_params_plugins_virtual_walls.yaml" command="load"  />
+        <!-- local costmap params -->
+        <rosparam file="$(find rtcrobot_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" subst_value="true" />
+        <rosparam file="$(find rtcrobot_navigation)/config/costmap_local_params.yaml" command="load" subst_value="true" />
+        <rosparam file="$(find rtcrobot_navigation)/config/costmap_local_params_plugins_virtual_walls.yaml" command="load" />
+        <remap from="map" to="map" />
+        <remap from="odom" to="/odom_comb" />
+        <remap from="marker" to="move_base_node/DWBLocalPlanner/markers" />
+    </node>
+</launch>

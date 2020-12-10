@@ -1,0 +1,13 @@
+th,td{
+    border: 0.1rem solid #e2e5e8;;
+    border-collapse: collapse;
+    font-size: small;
+}
+td{
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns:25% 25% 25% 25%;
+  }

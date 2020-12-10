@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find rtcrobot_description)/launch/upload.launch"/>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rtcrobot_description)/rviz/providemap.rviz" />
+</launch>

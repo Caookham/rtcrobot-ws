@@ -1,0 +1,135 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Manual</title>
+    <link rel="icon" href="./assets/image/rtc_icon.ico" type="image/icon type">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="./assets/css/sidebar.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/navbar.css">
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+
+    <link rel="stylesheet" href="gridstack.js/demo/widget.css" />
+
+    <link rel="stylesheet" href="gridstack.js/dist/gripstack-extra.css" />
+    <link rel="stylesheet" href="gridstack.js/dist/gripstack.css" />
+
+
+</head>
+</head>
+
+<body>
+    <!--Side bar-->
+    <ul class="nav flex-column shadow d-flex sidebar mobile-hid">
+            <li class="nav-item">
+                <div class="text-center text-white logo py-4" style="font-size: 24px; margin-right: 1.5rem;">
+                    <a class="text-white text-decoration-none" id="title" href="#">
+                        RTC
+                        <span style="color: #f33f3f;">ROBOT</span>
+                    </a>
+                    <a class="text-white float-right" id="sidebarToggleHolder2" href="#">
+                        <i class="fas fa-times" id="sidebarToggleClose"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="/"><i class="fas fa-tachometer-alt mx-3"></i><span class="text-nowrap mx-2">Dashboard</span></a></li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" data-toggle="dropdown" aria-expanded="false" href="#">
+                    <i class="fas fa-sliders-h mx-3"></i>
+                    <span class="text-nowrap mx-2">Setup</span>
+                    <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
+                </a>
+                <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                    <a class="dropdown-item text-white" role="presentation" href="/maps.html"><i class="fas fa-map-marker mx-3"></i><span>Maps</span></a>
+              
+                    <a class="dropdown-item text-white" role="presentation" href="mission"><i class="fas fa-tasks mx-3"></i><span>Mission</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="sound"><i class="fas fa-bars mx-3"></i><span>Sound</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="setting"><i class="fas fa-bars mx-3"></i><span>Setting</span></a></div>
+            </li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="manual.html"><i class="fas fa-chart-bar mx-3"></i><span class="text-nowrap mx-2">manual</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-user mx-3"></i><span class="text-nowrap mx-2">User </span></a></li>
+
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Log out</span></a></li>
+    </ul>
+    <!--Content-->
+    <div>
+        <!--Start Navbar-->
+        <header>
+            <div class="topnav">
+                <a class="float-left" id="sidebarToggleOpen" href="#">
+                    <i class="fas fa-bars" id="sidebarToggleHolder1"></i>
+                </a>
+                <a class="brand" href="dashboard_index.html">
+                    RTC
+                    <span style="color: #f33f3f;">ROBOT</span>
+                </a>
+                
+            </div>
+        </header>
+        <!--End Navbar-->
+
+        <!--Start Content-->
+        <div>
+
+            <div class="row">
+            <div class="col-md-5 col-md-5 col-md-5 col-md-5 ">
+                <div class="row">
+                        
+<div  style=" height: 50%; margin-right: 1rem" class="row"><div  style=" margin-right: 1rem;  transform: rotate(90deg)" id="mjpeg1"></div></div>
+<div  style=" margin-right: 1rem"class="row"><div  style=" transform: rotate(90deg)" id="mjpeg"></div></div>                                   
+                </div>
+            </div>
+
+            <div class="col-md-7 col-sm-7 col-xl-7  col-mb-7">
+                <div id="map-contain" style="position: fixed;margin-top: 0;height: 100%;width: 100%;z-index: 10;overflow: hidden;background-color: rgb(236, 236, 236);">
+                <div id="map" style="height: fit-content;width: fit-content;"></div>
+               </div> 
+            </div>
+            </div>
+            <div class="row">
+            <div class="bg-info" id="zone_joystick" style="z-index: 100;background-color: rgb(0,30,252);height: 0;width: 0;position: fixed;bottom: 0;right: 0;margin-right: 150px;margin-bottom: 150px;"></div>
+            </div>
+
+        </div>
+        <!--End Content-->
+        <!--Footer-->
+        <footer></footer>
+    </div>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/sidebar.js"></script>
+    <script src="./assets/js/eventemitter2.min.js"></script>
+    <script src="./assets/js/easeljs.min.js"></script>
+    <script src="./assets/js/roslib.min.js"></script>
+    <script src="./assets/js/ros2d.js"></script>
+    <script src="./gridstack.js/src/jquery.js"></script>
+    <script src="./gridstack.js/src/gridstack.js"></script>
+    <script src="./gridstack.js/src/jquery-ui.js"></script>
+    <script src="./gridstack.js/src/gridstack.jQueryUI.js"></script>
+    <script src="./gridstack.js/touch/jquery.ui.touch-punch.min.js"></script>
+    
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/nipplejs.js"></script>
+    <script src="assets/js/ros2d.min.js"></script>
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/three.js"></script>
+    <script src="assets/js/mjpegcanvas.js"></script>
+    <!-- <script src="assets/js/yzoom.js"></script> -->
+    <script src="assets/js/manual.js"></script>
+    <script src="assets/js/websocket.js"></script>
+</body>
+
+</html>
+

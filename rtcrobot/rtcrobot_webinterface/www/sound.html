@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Mission</title>
+    <link rel="icon" href="/www/assets/img/dogs/image2.jpeg" type="image/gif" sizes="16x16">
+    <!-- <link rel="stylesheet" href="https://fonts.os.environgoogleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/select.css">
+    <link rel="stylesheet" href="assets/css/untitled-1.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/sound.css">
+    
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!--Side bar-->
+        <ul class="nav flex-column shadow d-flex sidebar mobile-hid">
+            <li class="nav-item">
+                <div class="text-center text-white logo py-4" style="font-size: 24px; margin-right: 1.5rem;">
+                    <a class="text-white text-decoration-none" id="title" href="#">
+                        RTC
+                        <span style="color: #f33f3f;">ROBOT</span>
+                    </a>
+                    <a class="text-white float-right" id="sidebarToggleHolder2" href="#">
+                        <i class="fas fa-times" id="sidebarToggleClose"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="/"><i class="fas fa-tachometer-alt mx-3"></i><span class="text-nowrap mx-2">Dashboard</span></a></li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" data-toggle="dropdown" aria-expanded="false" href="#">
+                    <i class="fas fa-sliders-h mx-3"></i>
+                    <span class="text-nowrap mx-2">Setup</span>
+                    <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
+                </a>
+                <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                    <a class="dropdown-item text-white" role="presentation" href="/maps.html"><i class="fas fa-map-marker mx-3"></i><span>Maps</span></a>
+              
+                    <a class="dropdown-item text-white" role="presentation" href="mission"><i class="fas fa-tasks mx-3"></i><span>Mission</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="sound"><i class="fas fa-bars mx-3"></i><span>Sound</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="setting"><i class="fas fa-bars mx-3"></i><span>Setting</span></a></div>
+            </li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-chart-bar mx-3"></i><span class="text-nowrap mx-2">Statistics</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-user mx-3"></i><span class="text-nowrap mx-2">User profile</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="far fa-life-ring mx-3"></i><span class="text-nowrap mx-2">Support tickets</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Log out</span></a></li>
+        </ul>
+        <!--Content-->
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <!--Navbar-->
+                <header>
+                    <div class="topnav">
+                        <a class="float-left"  id="sidebarToggleOpen" href="#">
+                            <i class="fas fa-bars" id="sidebarToggleHolder1" ></i>
+                        </a>
+                        <a class="brand" href="/">
+                            RTC
+                            <span style="color: #f33f3f;">ROBOT</span>
+                        </a>
+                        <div class="topnav-right">
+                            <a href="#search" data-toggle="modal" data-target="#createMap">
+                                <i class="fas fa-plus" style="color: rgb(105,105,105);"></i>
+                            </a>
+                            <a href="#about">
+                                <i class="fas fa-ellipsis-v" style="color: red;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </header>
+        <!--content center-->
+        <div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-8 ">
+                    <div class=" mb-5 ml-5 mt-3">
+                        <h4>Sound</h4>
+                        <span style="font-size:smaller">upload and edit sound!</span>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 mb-5 mt-3 ">
+                    <form enctype="multipart/form-data" action="upload" method="post">
+                       
+                            <div class="col-sm-8 "><input type="file" title="your text" name="file1" accept="audio/,.wav"></div> 
+                            <br>
+                            <div class="col-sm-4 "><input type="submit" value="upload"></div>
+                        
+                        </form>
+                </div>
+            </div>
+           
+            <div class="row card shadow-sm mb-3 ml-3 mt-5 mr-3 "  >
+                <table class="table dataTable my-0 table-hover" id="table-sound">
+                    <thead style="background: #d0d0d0;">
+                        <tr >
+                            <th style="width: 5%;"></th>
+                            <th style="width: 40%;">Name</th>
+                            <th style="width: 10%;">length</th>
+                            <th style="width: 10%;" >volume</th>
+                            <th style="width: 10%;" >created</th>
+                            <th style="width: 25%;">funtions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="talbe_sound">
+
+                    </tbody>
+                    <tfoot style="background: #d0d0d0;">
+                        <tr>
+                            <th style="width: 5%;"></th>
+                            <th style="width: 40%;">Name</th>
+                            <th style="width: 10%;">length</th>
+                            <th style="width: 10%;" >volume</th>
+                            <th style="width: 10%;" >created by</th>
+                            <th style="width: 25%; " >funtions</th>
+                        </tr>
+                    </tfoot>
+                </table>
+          
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/roslib.js"></script>
+    <script src="assets/js/roslib.min.js"></script>
+   
+    <script src="assets/js/bs-init-1.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/ColladaLoader2.js"></script>
+    <script src="assets/js/easeljs.js"></script>
+    <script src="assets/js/easeljs.min.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/nav2d.js"></script>
+    <script src="assets/js/nipplejs.js"></script>
+  
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/three.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/sound.js"></script>
+</div>
+</body>
+
+</html>

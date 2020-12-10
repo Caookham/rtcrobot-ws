@@ -1,0 +1,15 @@
+global_costmap:
+    ### footprint
+    footprint: [[-0.45,-0.28],[-0.45,0.28],[0.45,0.28],[0.45,-0.28]] #[[-0.475, -0.295], [-0.475, 0.295], [0.475, 0.295], [0.475, -0.2795]]
+    footprint_padding: 0.08
+    global_frame: map
+    static_map: true
+    update_frequency: 10.0
+    publish_frequency: 10.0
+    raytrace_range: 5.0
+    resolution: 0.05
+    inflation:
+      cost_scaling_factor:  10.0  # Exponential rate at which the obstacle cost drops off (default: 10). Must be chosen so that the cost value is > 0 at robot's circumscribed radius.
+      inflation_radius:     0.3  # Max. distance from an obstacle at which costs are incurred for planning paths. Must be > robot's circumscribed radius.
+
+    # plugins are loaded via costmap_global_params_plugins_[mapping|planning].yaml

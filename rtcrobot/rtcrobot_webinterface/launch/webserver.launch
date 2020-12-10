@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find rtcrobot_webinterface)/launch/rosbridge_websocket.launch" />
+    
+    <node pkg="rtcrobot_webinterface" type="server.py" name="robot_webserver">
+    </node>
+    <node pkg="web_video_server" type="src/web_video_server.cpp" name=" web_video_server">
+    </node>
+    
+    <!-- <node pkg="rtcrobot_services" type="savemap_node.py" name="savemapnode" output="screen">
+    </node> -->
+</launch>

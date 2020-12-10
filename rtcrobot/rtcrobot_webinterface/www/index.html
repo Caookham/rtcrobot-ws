@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RTCRobot Interface</title>
+    <link rel="icon" href="./assets/image/rtc_icon.ico" type="image/icon type">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="./assets/css/sidebar.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/navbar.css">
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+
+
+
+</head>
+</head>
+
+<body>
+    <!--Side bar-->
+    <ul class="nav flex-column shadow d-flex sidebar mobile-hid collapsed">
+        <li class="nav-item logo-holder1">
+            <div class="text-center text-white logo py-4 mx-4" style="font-size: 27px;">
+                <a class="text-white text-decoration-none" id="title" href="#">
+                    <strong>Sidebar</strong>
+                </a>
+                <a class="text-white float-right" id="sidebarToggleHolder2" href="#">
+                    <i class="fas fa-times" id="sidebarToggleClose"></i>
+                </a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-left text-white py-1 px-0 position-relative" data-toggle="dropdown" aria-expanded="false" href="#">
+                <i class="fas fa-tachometer-alt mx-3"></i>
+                <span class="text-nowrap mx-2">Dashboard</span>
+                <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
+            </a>
+            <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                <a class="dropdown-item text-white" role="presentation" id="Dashboard">
+                    <span>Dashboard</span>
+                </a>
+                <a class="dropdown-item text-white" role="presentation" id="manage_dashboard" href="maps.html">
+                    <span>Manager Dashboard</span>
+                </a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" data-toggle="dropdown" aria-expanded="false" href="#">
+                <i class="fas fa-sliders-h mx-3"></i>
+                <span class="text-nowrap mx-2">Setup</span>
+                <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
+            </a>
+            <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                <a class="dropdown-item text-white" role="presentation" href="/maps.html"><i class="fas fa-map-marker mx-3"></i><span>Maps</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="mission"><i class="fas fa-tasks mx-3"></i><span>Mission</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="sound"><i class="fas fa-bars mx-3"></i><span>Sound</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="setting"><i class="fas fa-bars mx-3"></i><span>Setting</span></a></div>
+        </li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="fas fa-chart-bar mx-3"></i><span class="text-nowrap mx-2">Statistics</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="fas fa-user mx-3"></i><span class="text-nowrap mx-2">User profile</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="far fa-life-ring mx-3"></i><span class="text-nowrap mx-2">Support tickets</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span
+                    class="text-nowrap mx-2">Log out</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i
+                    class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span
+                    class="text-nowrap mx-2">Log out</span></a></li>
+    </ul>
+    <!--Content-->
+    <div>
+        <!--Start Navbar-->
+        <header>
+            <div class="topnav">
+                <a class="float-left" id="sidebarToggleOpen" href="#">
+                    <i class="fas fa-bars" id="sidebarToggleHolder1"></i>
+                </a>
+                <a class="brand" href="/">
+                    RTC
+                    <span style="color: #f33f3f;">ROBOT</span>
+                </a>
+                <div class="topnav-right">
+                    <a>
+                        <span>STOP</span>
+                    </a>
+                    <a href="#search">
+                        <i class="fas fa-check" style="color: green;"></i>
+                    </a>
+                    <a href="#about">
+                        <i class="fas fa-gamepad" style="color: red;"></i>
+                    </a>
+                    <a href="#about">
+                        <i class="fas fa-battery-full" id="icon_bat" style="color: rgb(251, 255, 0);"></i>
+                        <span class="rtc-battery">80%</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!--End Navbar-->
+
+        <!--Start Content-->
+        <div>
+            <div class="container-fluid">
+                <!--Title-->
+                <div class="d-sm-flex justify-content-start align-items-xl-center mb-4 mt-3">
+                    <h3 class="text-dark mb-0">Dashboard</h3>
+                    <a class="btn btn-primary btn-sm d-none d-sm-inline-block ml-2" role="button" href="#">
+                        <i class="fas fa-user-circle fa-sm text-white-50"></i>  My Dashboard
+                    </a>
+                </div>
+                <!--End Title-->
+
+                <!--Create card mission-->
+                <div class="row">
+                    {% for i in range(length) %}
+                    <div class="col-md-6 col-xl-3 mb-4 ">
+                        <div class="card shadow border-left-primary py-2 card_mission" id="card{{[i]}}">
+                            <div class="card-body ">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <div class="{{ color[i] }} font-weight-bold text-xs mb-1">
+                                            <span>{{ arr_name[i] }}</span></div>
+                                        <div class="text-dark font-weight-bold h5 mb-0"><span>{{arr_des[i]}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto"><i class="fas fa-meteor fa-2x text-gray-300"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% end %}
+
+                </div>
+                <!--End card Mission-->
+
+                <!--Map-->
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col px-2">
+                                        <button class="btn-zoom zoom-plus"><i class="fas fa-search-plus"></i></button>
+                                        <button class="btn-zoom zoom-minus"><i class="fas fa-search-minus"></i></button>
+                                    </div>
+                                    <div class="col px-2 d-flex flex-row-reverse">
+                                        <button class="btn-zoom"><i class="fas fa-redo-alt"></i></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col align-items-center px-0" id="map-contain">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Map-->
+            </div>
+
+        </div>
+        <!--End Content-->
+        <!--Footer-->
+        <footer></footer>
+    </div>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/sidebar.js"></script>
+    <script src="./assets/js/eventemitter2.min.js"></script>
+    <script src="./assets/js/easeljs.min.js"></script>
+    <script src="./assets/js/roslib.min.js"></script>
+    <script src="./assets/js/ros2d.js"></script>
+
+
+    <!--
+    <script type="text/javascript" src="https://static.robotwebtools.org/EaselJS/current/easeljs.min.js"></script>
+    <script type="text/javascript" src="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+    <script type="text/javascript" src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <script type="text/javascript" src="https://static.robotwebtools.org/ros2djs/current/ros2d.min.js"></script>
+    -->
+
+    <script src="./assets/js/dashboard_connectRos.js"></script>
+</body>
+
+</html>

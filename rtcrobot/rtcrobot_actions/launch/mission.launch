@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg='rtcrobot_actions' type='missionclient_node.py' name='missionclient' output='screen'/>
+    <node pkg='rtcrobot_actions' type='missionserver_node.py' name='missionserver' output='screen'/>
+</launch>

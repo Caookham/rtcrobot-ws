@@ -1,0 +1,20 @@
+# Define the goal
+
+# Specify an (optional) type for the dock
+int8 NORMAL         = 0 #Dock with distance
+int8 CHARGER        = 1 #Dock to charger
+int8 DOCK_SENSOR    = 2 #Dock with sensor detect
+
+int8 dock_type
+float32 distance
+---
+# Define the result
+# Are we docked and charging?
+bool docked
+---
+# Define a feedback message
+# Feedback is the detected pose of the dock.
+geometry_msgs/PoseStamped dock_pose
+
+# Plus the control output
+geometry_msgs/Twist command

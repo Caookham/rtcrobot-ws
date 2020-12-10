@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+    <!--Argument-->
+    <arg name="abort_distance"    			default="0.40"/>
+    <arg name="abort_threshold"    			default="0.025"/>
+    <arg name="abort_angle"       			default="0.0872664626"/> <!--5 degree-->
+    <arg name="num_of_retries"      			default="5"/>
+    <arg name="dock_connector_clearance_distance"      	default="0.2"/>
+    <arg name="docked_distance_threshold"      		default="1.2"/>
+    <arg name="docked_errors_xy"      			default="0.005"/>
+    <arg name="docked_errors_angle"      		default="0.2"/>
+
+    <!--Dock-->
+    <node name="dock" pkg="rtcrobot_autodock" type="autodock" output="screen">
+    </node>
+</launch>

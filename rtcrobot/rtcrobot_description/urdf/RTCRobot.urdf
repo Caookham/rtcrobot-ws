@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<robot name="RTCRobot">
+  <!--Color define-->
+  <material name="blue">
+    <color rgba="0 0.8 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0.066 0.066 0.066 1"/>
+  </material>
+
+  <!--Link define-->
+  <link name="base_link">
+    <visual>
+      <origin rpy="1.5708 0 0" xyz="-0.5 0.77 -0.16"/>
+      <geometry>
+        <mesh filename="package://rtcrobot/model/agv18.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+  
+  <link name="wheel_left">
+  </link>
+  
+  <link name="wheel_right">
+  </link>
+
+  <link name="base_footprint">
+  </link>
+
+  <link name="imu_link">
+  </link>
+
+  <link name="camera_right_link">
+  </link>
+
+  <link name="camera_left_link">
+  </link>
+
+  <link name="depth_link">
+  </link>
+
+  <link name="f_scan_link">
+  </link>
+
+  <link name="b_scan_link">
+  </link> 
+
+  <link name="mer_scan_link">
+  </link>  
+
+  <link name="dock_link">
+  </link>
+
+  <!--<link name="odom_comb">
+  </link>
+
+  <link name="map">
+  </link>-->
+
+  <!--Joint define-->
+  <joint name="base_to_wheel_left" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_left"/>
+    <origin xyz="0 -0.223 -0.075"/>
+  </joint>
+  
+  <joint name="base_to_wheel_right" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_right"/>
+    <origin xyz="0 0.223 -0.075"/>
+  </joint>
+
+  <joint name="base_to_imu" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0.0 0 0.1" rpy="0.0 0.0 0"/>
+  </joint>
+
+  <joint name="base_to_camera_right" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_right_link"/>
+    <origin xyz="0.4236 -0.0642 -0.027" rpy="1.7 -0.12 0.57"/>
+  </joint>
+
+  <joint name="base_to_camera_left" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_left_link"/>
+    <origin xyz="0.4236 0.0642 -0.027" rpy="1.55 -0.1 -0.518"/>
+  </joint>
+
+  <joint name="base_to_depth" type="fixed">
+    <parent link="base_link"/>
+    <child link="depth_link"/>
+    <origin xyz="0.43 0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="base_to_f_scan" type="fixed">
+    <parent link="base_link"/>
+    <child link="f_scan_link"/>
+    <origin xyz="0.415 0.24 0" rpy="3.1416 0 0.765398163"/> <!--0.785398163-->
+  </joint>
+
+  <joint name="base_to_b_scan" type="fixed">
+    <parent link="base_link"/>
+    <child link="b_scan_link"/>
+    <origin xyz="-0.415 -0.24 0" rpy="3.1416 0 -2.33619449"/> <!---2.35619449-->
+  </joint>
+  
+  <joint name="base_to_mer_scan" type="fixed">
+    <parent link="base_link"/>
+    <child link="mer_scan_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  
+  <joint name="footprint_to_base" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.173"/>
+  </joint>
+
+  <joint name="footprint_to_dock" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="dock_link"/>
+    <origin xyz="0.0 0.0 0.0"/>
+  </joint>
+
+  <!--<joint name="odom_to_footprint" type="planar">
+    <parent link="odom_comb"/>
+    <child link="base_footprint"/>
+    <origin xyz="0.0 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  
+  <joint name="map_to_odom" type="planar">
+    <parent link="map"/>
+    <child link="odom_comb"/>
+    <origin xyz="0.0 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+  </joint>-->
+  
+</robot>

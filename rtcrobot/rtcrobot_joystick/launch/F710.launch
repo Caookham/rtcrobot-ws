@@ -1,0 +1,5 @@
+<launch>
+  <!-- assumes ds4drv is running -->
+  <node name="joy_node" pkg="rtcrobot_joystick" type="joy_node">
+  </node>
+</launch>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RTCRobot Interface</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/setting.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+   
+    
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!--Side bar-->
+        <ul class="nav flex-column shadow d-flex sidebar mobile-hid">
+            <li class="nav-item">
+                <div class="text-center text-white logo py-4" style="font-size: 24px; margin-right: 1.5rem;">
+                    <a class="text-white text-decoration-none" id="title" href="#">
+                        RTC
+                        <span style="color: #f33f3f;">ROBOT</span>
+                    </a>
+                    <a class="text-white float-right" id="sidebarToggleHolder2" href="#">
+                        <i class="fas fa-times" id="sidebarToggleClose"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="/"><i class="fas fa-tachometer-alt mx-3"></i><span class="text-nowrap mx-2">Dashboard</span></a></li>
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle nav-link text-left text-white py-1 px-0 position-relative" data-toggle="dropdown" aria-expanded="false" href="#">
+                    <i class="fas fa-sliders-h mx-3"></i>
+                    <span class="text-nowrap mx-2">Setup</span>
+                    <i class="fas fa-caret-down float-none float-lg-right fa-sm"></i>
+                </a>
+                <div class="dropdown-menu border-0 animated fadeIn" role="menu">
+                    <a class="dropdown-item text-white" role="presentation" href="/maps.html"><i class="fas fa-map-marker mx-3"></i><span>Maps</span></a>
+              
+                    <a class="dropdown-item text-white" role="presentation" href="mission"><i class="fas fa-tasks mx-3"></i><span>Mission</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="sound"><i class="fas fa-bars mx-3"></i><span>Sound</span></a>
+                <a class="dropdown-item text-white" role="presentation" href="setting"><i class="fas fa-bars mx-3"></i><span>Setting</span></a></div>
+            </li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-chart-bar mx-3"></i><span class="text-nowrap mx-2">Statistics</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-user mx-3"></i><span class="text-nowrap mx-2">User</span></a></li>
+            <li class="nav-item"><a class="nav-link text-left text-white py-1 px-0" href="#"><i class="fas fa-sign-out-alt mx-3"></i><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Log out</span></a></li>
+        </ul>
+        <!--Content-->
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <!--Navbar-->
+                <header>
+                    <div class="topnav">
+                        <a class="float-left"  id="sidebarToggleOpen" href="#">
+                            <i class="fas fa-bars" id="sidebarToggleHolder1" ></i>
+                        </a>
+                        <a class="brand" href="/">
+                            RTC
+                            <span style="color: #f33f3f;">ROBOT</span>
+                        </a>
+                        <div class="topnav-right">
+                            <a href="#search" data-toggle="modal" data-target="#createMap">
+                                <i class="fas fa-plus" style="color: rgb(105,105,105);"></i>
+                            </a>
+                            <a href="#about">
+                                <i class="fas fa-ellipsis-v" style="color: red;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </header>
+                <!--content center-->
+                <div class=" mb-5 ml-5 mt-3">
+                        <h4>Setting</h4>
+                        <span style="font-size:smaller">Watch and edit setting for robot</span>
+                 
+                </div>
+                <div class="modal fade " style="width: 100%;" role="dialog" tabindex="-1" id="modified_modal">
+                    <div class="modal-dialog  modal-lg modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="font-style: normal;font-family: Nunito, sans-serif;">
+                                <h4 class="modal-title">modifine</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div class="modal-body" style="justify-self: center">
+                                <!-- <div class="container-fluid"> -->
+                                    <section data-aos="fade-up" data-aos-duration="700" id="video-and-stats">
+                            
+                                        <div class="container">
+                                            <div id="hero-bottom-1">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col" data-aos="fade-up" data-aos-delay="400">
+                                                            <p class="text-dark p-top"><i class="icon ion-speedometer"></i>&nbsp;10 m/s</p>
+                                                            <p class="text-dark p-bot">speed</p>
+                                                        </div>
+                                                        <div class="col with-borders" data-aos="fade-up" data-aos-delay="500">
+                                                            <p class="text-dark p-top">0.1 m&nbsp;</p>
+                                                            <p class="text-dark p-bot">Distance&nbsp;</p>
+                                                        </div>
+                                                        <div class="col text-dark" data-aos="fade-up" data-aos-delay="600">
+                                                            <p class="text-dark p-top">620mi </p>
+                                                            <p class="p-bot">Mile Range</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="stats">
+                                                <table id="setting_parameter" style="width: 100%;" class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="2">Move Base&nbsp;</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="talbe_setting">
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </section>
+                                <!-- </div> -->
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><button id="save_modifided"
+                                 class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="light_modal">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <article></article>
+                                <h4 class="modal-title" style="font-family: Nunito, sans-serif;color: rgb(10,128,245);"><i class="fa fa-question-circle" style="color: rgb(7,125,242);"></i>&nbsp;Show light&nbsp; &nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div
+                                class="modal-body">
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">State&nbsp;<i class="fa fa-question-circle"></i></label><select id="state" style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">Color&nbsp;<i class="fa fa-question-circle"></i></label><select id="color" style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">effect&nbsp;<i class="fa fa-question-circle"></i></label><select id="efect" style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"></select></div>
+                                </div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><buttonv id="ok_setting_light" class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="sensor">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <article></article>
+                                <h4 class="modal-title" style="font-family: Nunito, sans-serif;color: rgb(10,128,245);"><i class="fa fa-question-circle" style="color: rgb(7,125,242);"></i>&nbsp; Sensor,camera&nbsp; &nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div class="modal-body">
+                                <table id="setting_parameter" style="width: 100%;" class="table">
+                                    <tbody class="sensor">
+                                        <tr> 
+                                            <td>Camera 1</td>
+                                            <td></td>
+                                            <td><center><input type="checkbox" checked data-toggle="toggle" data-size="xs"></center></td> 
+                                         </tr>
+                                         <tr> 
+                                            <td>Camera 2</td>
+                                            <td></td>
+                                            <td><center><input type="checkbox" checked data-toggle="toggle" data-size="xs"></center></td>  
+                                         </tr>
+                                         <tr> 
+                                            <td>Sensor 1</td>
+                                            <td></td>
+                                            <td><center><input type="checkbox" checked data-toggle="toggle" data-size="xs"></center></td> 
+                                         </tr>
+                                         <tr> 
+                                            <td>Sensor 2</td>
+                                            <td></td>
+                                            <td><center><input type="checkbox" checked data-toggle="toggle" data-size="xs"></center></td> 
+                                         </tr>
+                                         <tr> 
+                                            <td>Sensor 3</td>
+                                            <td></td>
+                                            <td><center><input type="checkbox" checked data-toggle="toggle" data-size="xs"></center></td> 
+                                         </tr>
+                                         <tr> 
+                                            <td>Sensor 4</td>
+                                            <td></td>
+                                            <td> <center><input type="checkbox" checked data-toggle="toggle" data-size="xs"></center></td> 
+                                         </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><button class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="baterry">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <article></article>
+                                <h4 class="modal-title" style="font-family: Nunito, sans-serif;color: rgb(10,128,245);"><i class="fa fa-question-circle" style="color: rgb(7,125,242);"></i>&nbsp;Baterry&nbsp; &nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div
+                                class="modal-body">
+                                <table id="table_baterry" style="width: 100%;" class="table_baterry">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Parameter&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="baterry">
+                                        
+                                    </tbody>
+                                </table>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><button class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="docking">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <article></article>
+                                <h4 class="modal-title" style="font-family: Nunito, sans-serif;color: rgb(10,128,245);"><i class="fa fa-question-circle" style="color: rgb(7,125,242);"></i>&nbsp;Docking&nbsp; &nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div
+                                class="modal-body">
+                                <table id="table_docking" style="width: 100%;" class="table_docking">
+                                    
+                                    <tbody class="docking">
+                                        <tr> 
+                                            <td >docking</td>
+                                            <td></td>
+                                            <td  ><center><input type="checkbox" checked data-toggle="toggle" data-size="xs"></center></td> 
+                                         </tr>
+                                         <!-- <tr> 
+                                            <td>Camera 2</td>
+                                            <td></td>
+                                            <td><input type="checkbox" checked data-toggle="toggle" data-size="xs"></td> 
+                                         </tr>
+                                         <tr> 
+                                            <td>Sensor 1</td>
+                                            <td></td>
+                                            <td><input type="checkbox" checked data-toggle="toggle" data-size="xs"></td> 
+                                         </tr> -->
+                                    </tbody>
+                                </table>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><button class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="sound">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <article></article>
+                                <h4 class="modal-title" style="font-family: Nunito, sans-serif;color: rgb(10,128,245);"><i class="fa fa-question-circle" style="color: rgb(7,125,242);"></i>&nbsp;Sound&nbsp; &nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div
+                                class="modal-body">
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">sound&nbsp;<i class="fa fa-question-circle"></i></label><select id="sound1" style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">volume&nbsp;<i class="fa fa-question-circle"></i></label><input type="number" id="value" class="form-control-user form-control" placeholder="" /></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">State&nbsp;<i class="fa fa-question-circle"></i></label><select id="state1" style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"></select></div>
+                                </div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><button class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="light_modal-5">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <article></article>
+                                <h4 class="modal-title" style="font-family: Nunito, sans-serif;color: rgb(10,128,245);"><i class="fa fa-question-circle" style="color: rgb(7,125,242);"></i>&nbsp;Show light&nbsp; &nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div
+                                class="modal-body">
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">State&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">Color&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">effect&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><button class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="light_modal-6">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <article></article>
+                                <h4 class="modal-title" style="font-family: Nunito, sans-serif;color: rgb(10,128,245);"><i class="fa fa-question-circle" style="color: rgb(7,125,242);"></i>&nbsp;Show light&nbsp; &nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div
+                                class="modal-body">
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">State&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">Color&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">effect&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><button class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="light_modal-7">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <article></article>
+                                <h4 class="modal-title" style="font-family: Nunito, sans-serif;color: rgb(10,128,245);"><i class="fa fa-question-circle" style="color: rgb(7,125,242);"></i>&nbsp;Show light&nbsp; &nbsp;</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                            <div
+                                class="modal-body">
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">State&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">Color&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                                <div class="row mb-4 mt-4">
+                                    <div class="col"><label style="font-family: Nunito, sans-serif;font-style: normal;font-size: medium;color: rgb(14,14,14);">effect&nbsp;<i class="fa fa-question-circle"></i></label><select style="width: 100%;font-family: Nunito, sans-serif;color: rgb(88,80,80);"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></select></div>
+                                </div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-family: Nunito, sans-serif;">Close</button><button class="btn btn-primary" type="button" style="font-family: Nunito, sans-serif;">Save</button></div>
+                    </div>
+                </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4 ">
+                            <div class="card shadow border-left-primary py-0" data-toggle="modal" data-target="#light_modal">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-lightbulb-o fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;color: rgb(16,17,17);">Light</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">set color,times</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0" data-toggle="modal" data-target="#baterry">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-battery-1 fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Baterry</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">capacity,times</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0" data-toggle="modal" data-target="#sensor">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-camera fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Sensor,camera</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">configuration for sensor,camera</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0"  data-toggle="modal" data-target="#sound">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters ">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-file-sound-o fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Sound</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">configuration for Sound&nbsp;</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-calendar-times-o fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Date,time</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">set robot date,time</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-wifi fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center" style="font-family: Nunito, sans-serif;"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Wifi</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Actor, sans-serif;font-size: smaller;">wifi connection robot to use&nbsp;</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-gears fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Motor</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center" style="font-family: Nunito, sans-serif;"><span style="font-family: Actor, sans-serif;font-size: smaller;">speed,status&nbsp;</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-bluetooth-b fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Bluetooth</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">status</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0">
+                                <div id="sensor" class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-map-o fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Maps</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">configuration for maps<br></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0" data-toggle="modal" data-target="#docking">
+                                <div id="docking" class="card-body ">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-step-forward fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center" style="font-family: Nunito, sans-serif;"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Docking</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Actor, sans-serif;font-size: smaller;">parameter for docking makers</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0" data-toggle="modal" data-target="#modified_modal">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fas fa-american-sign-language-interpreting fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Modified defaults</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">see values different form defaults&nbsp;</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xl-4 mb-4">
+                            <div class="card shadow border-left-primary py-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col-sm-3 text-center icon"><i class="fa fa-gamepad fa-3x text-gray-300" style="color: rgb(2,129,255);"></i></div>
+                                        <div class="col">
+                                            <div class="row">
+                                                <div class="col text-center"><span class="text-center" style="font-family: Nunito, sans-serif;font-size: larger;">Gamepad&nbsp;</span></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center"><span style="font-family: Nunito, sans-serif;font-size: smaller;">configuration&nbsp;</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © RTC Technology 2020</span></div>
+                </div>
+            </footer>
+        </div>
+        <div role="dialog" tabindex="-1" class="modal fade show" id="setting">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: rgb(3,3,3);"></h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <div  class="form-group text-center"><label id="label"></label><input type="number" id="value_modified" class="form-control-user form-control" placeholder="" /></div>
+                        
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button data-dismiss="modal" class="btn btn-primary" id="ok_setting">OK</button></div>
+                </div>
+            </div>
+        </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="assets/js/roslib.js"></script>
+    <script src="assets/js/roslib.min.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/eventemitter2.min.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/websocket.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+    <script src="assets/js/setting.js"></script>
+</body>
+
+</html>

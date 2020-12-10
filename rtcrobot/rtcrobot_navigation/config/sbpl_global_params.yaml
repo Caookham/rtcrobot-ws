@@ -1,0 +1,10 @@
+base_global_planner: SBPLLatticePlanner
+SBPLLatticePlanner:
+  environment_type: XYThetaLattice
+  planner_type: ARAPlanner
+  allocated_time: 50.0
+  initial_epsilon: 10.0
+  forward_search: false
+  nominalvel_mpersecs: 0.5 #1.0
+  timetoturn45degsinplace_secs: 2.62 # = 0.6 rad/s 1.31
+  lethal_obstacle: 30
